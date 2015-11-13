@@ -10,25 +10,25 @@ define(['jquery', 'modules/emailValidator'], function($, emailValidator){
       formDemo : $('[data-js="form-demo"]'),
       fieldEmail : $('[data-js="field-email"]', this.formDemo),
       btnSubmit : $('[data-js="btn-submit"]', this.formDemo),
-      dialog : $('[data-js="dialog"]')
+      alert : $('[data-js="alert"]')
     }
   }
 
   function setupTriggers(elements){
     elements.formDemo.on('submit', function(evt){
       evt.preventDefault();
-      validateEmail(elements.dialog, elements.fieldEmail.val());
+      validateEmail(elements.alert, elements.fieldEmail.val());
     });
   }
 
-  function validateEmail(dialog, data){
-    var msgError = 'Please, use a valid email address...';
-    var msgSuccess = 'Very good!';
-    dialog.text('').removeClass('cp-alert-error cp-alert-success').addClass('is-hidden');
+  function validateEmail(alert, data){
+    var MSG_ERROR = 'Please, use a valid email address...';
+    var MSG_SUCCESS = 'Very good!';
+    alert.text('').removeClass('cp-alert-error cp-alert-success').addClass('is-hidden');
     if(!emailValidator.isValid(data))
-      dialog.addClass('cp-alert-error').text(msgError).removeClass('is-hidden');
+      alert.addClass('cp-alert-error').text(MSG_ERROR).removeClass('is-hidden');
     else
-      dialog.addClass('cp-alert-success').text(msgSuccess).removeClass('is-hidden');
+      alert.addClass('cp-alert-success').text(MSG_SUCCESS).removeClass('is-hidden');
   }
 
   return {
