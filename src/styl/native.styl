@@ -40,25 +40,11 @@ input
   &:hover,
   &:focus,
   &:active
+    border 1px solid $color-grey-dark
     outline 0
-
-input.is-invalid,
-input.is-valid
-  padding 16px 35px 15px 15px
-  background-position right center
-  &:focus
-    background-position right -20px
-    color $color-grey-dark
-    border 1px solid $color-grey-semi-light
-    
-input.is-invalid
-  background-image url($path-images/icon-cross.png)
-  color $color-error
-  border 1px solid $color-error
   
-input.is-valid
-  background-image url($path-images/icon-checked.png)
-  border 1px solid $color-success
+label
+  display: block;
 
 a
   padding-bottom 2px

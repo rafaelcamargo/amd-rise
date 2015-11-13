@@ -16,6 +16,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      {pattern: 'assets/js/libs/**/*.js', included: false},
       {pattern: 'src/js/**/*.js', included: false},
       {pattern: 'spec/**/*Spec.js', included: false},
       'spec/main.js',
@@ -31,6 +32,7 @@ module.exports = function(config) {
       'karma-jasmine',
       'karma-requirejs',
       'karma-phantomjs-launcher',
+      'karma-chrome-launcher',
       'karma-coverage'
     ],
 
@@ -83,6 +85,7 @@ module.exports = function(config) {
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: [
       'PhantomJS'
+      //'Chrome'
     ],
 
 

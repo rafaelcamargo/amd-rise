@@ -1,0 +1,36 @@
+@require 'variables'
+@require 'functions'
+
+.cp-btn
+  padding 14px 25px
+  min-width 140px
+  color $color-grey-dark
+  background-color $color-grey-semi-light
+  font-family $font-family-primary
+  font-size 18px
+  text-align center
+  text-decoration none
+  cursor pointer
+  border-width 1px
+  border-style solid
+  border-color $color-grey-dark
+  border-radius(8px)
+  box-sizing(border-box)
+  &:hover
+  &:focus
+    background-color alpha($color-grey-semi-light, 0.9)
+    outline 0
+  &:active
+    padding 15px 25px 13px
+    box-shadow(inset 0 2px 5px 0 alpha($color-grey-dark, 0.25))
+  &.is-progress
+    cursor progress
+  &.cp-btn-primary
+    color $color-white
+    background-color $color-primary
+    border-color $color-primary
+    &:hover
+    &:focus
+      color $color-white
+      background-color alpha($color-primary, 0.9)
+      border-color $color-primary-darken

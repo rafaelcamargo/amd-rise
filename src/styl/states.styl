@@ -1,0 +1,75 @@
+@require 'variables'
+  
+.is-block
+  display block
+  width 100%
+
+.is-cover
+  background-color $color-grey-semi-light
+  background-size cover
+  background-position center center
+  background-repeat no-repeat
+
+.is-text-light
+  color $color-white
+  h1, h2, h3, h4, h5, h6, p, div, span
+    color $color-white
+  
+.is-text-dark
+  color $color-grey-dark
+  h1, h2, h3, h4, h5, h6, p, div, span
+    color $color-grey-dark
+    
+.is-text-primary-colored
+  color $color-primary
+    
+.is-text-center
+  text-align center
+  
+.is-text-right
+  text-align right
+    
+.is-relatively-positioned
+  position relative
+  
+.is-absolutely-positioned
+  position absolute
+  top 0
+  left 0
+  
+.is-half-width
+  width 50%
+  
+.is-full-width
+  width 100%
+    
+.is-on-layer-base
+  z-index $layer-base
+
+.is-on-layer-low
+  z-index $layer-low
+  
+.is-on-layer-lowest
+  z-index $layer-lowest
+  
+.is-on-layer-low
+  z-index $layer-low
+  
+.is-on-layer-middle
+  z-index $layer-middle
+  
+.is-on-layer-high
+  z-index $layer-high
+  
+.is-on-layer-highest
+  z-index $layer-highest
+
+.is-hidden
+  display none
+  
+.is-cleared
+  zoom 1
+  &:after
+    content " "
+    display table
+    clear both

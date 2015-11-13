@@ -1,0 +1,14 @@
+@require 'variables'
+@require 'functions'
+
+.cp-alert
+  padding 20px
+  border-width 1px
+  border-style solid
+  border-radius(5px)
+  &.cp-alert-error
+    background-color alpha($color-error, 0.2)
+    color $color-error
+  &.cp-alert-success
+    background-color alpha($color-success, 0.2)
+    color $color-success

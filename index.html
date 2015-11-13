@@ -3,51 +3,69 @@
   <head>
     <title>amd-rise</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1.0,user-scalable=yes">
+    <meta name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="description" content="Rise a lite AMD application in minutes">
     <meta name="keywords" content="amd, requirejs, application, unit testing">
+    <!-- Assets -->
+    <link rel="stylesheet" href="assets/css/lib.min.css" />
+    <link rel="stylesheet" href="assets/css/app.min.css" />
     <!-- Dependencies -->
-    <script data-main="/src/js/modules/main" src="assets/js/libs/require.min.js"></script>
+    <script data-main="/src/js/main" src="assets/js/libs/require.min.js">
+    </script>
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600'
       rel='stylesheet' type='text/css'>
   </head>
   <body>
     <div class="gg-container">
-      <div class="gg-row">
-        <div class="gg-col-12">
-          <h1>amd-rise</h1>
-        </div>
-      </div>
       <div class="gg-row gg-voff-2">
         <div class="gg-col-12">
+          <h1>AMD Rise</h1>
+        </div>
+      </div>
+      <div class="gg-row gg-voff-1">
+        <div class="gg-col-12">
           <p>
-            Rise a lite AMD application in minutes
+            Rise a lite AMD application in minutes.
           </p>
         </div>
       </div>
-      <div class="gg-row gg-voff-2">
+      <div class="gg-row gg-voff-4">
         <div class="gg-col-12">
+          <div class="cp-alert is-hidden" data-js="dialog"></div>
+        </div>
+      </div>
+      <div class="gg-row gg-voff-4">
+        <div class="gg-col-4">
           <h2>Demo</h2>
-        </div>
-      </div>
-      <div class="gg-row gg-voff-2">
-        <div class="gg-col-12">
-          <p>
-            To show you how things work, a <em>email validator</em> module was created and unit tested</em>
+          <p class="gg-voff-1">
+            To show you how things work, a <em>email validator</em> 
+            module was created and unit tested.</em>
           </p>
         </div>
-      </div>
-      <div class="gg-row gg-voff-2">
-        <div class="gg-col-12">
-          <form>
+        <div class="gg-col-4 gg-hoff-1">
+          <form data-js="form-demo">
             <label>Email:</label>
-            <input type="text" />
-            <button type="submit">Validate</button>
+            <input type="text" class="is-block gg-voff-2"
+              placeholder="Type an email..." data-js="field-email"/>
+            <button type="submit"
+              class="cp-btn is-block cp-btn-primary gg-voff-2"
+              data-js="btn-submit">
+              Validate
+            </button>
           </form>
         </div>
       </div>
     </div>
+
+    <!--script type="text/javascript" src="assets/js/shared.min.js"></script-->
+    <script type="text/javascript">
+      require(['pages/demo'], function(demo){
+        demo.init();
+      });
+    </script>
   </body>
 </html>
