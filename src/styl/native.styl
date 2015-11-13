@@ -1,0 +1,87 @@
+@require 'variables'
+@require 'functions'
+
+body, input, ul, ol
+  font-weight 300
+
+body, h1, h2, h3, h4, h5, h6, p, div, span, ul, ol, a
+  margin 0
+  padding 0
+  font-family $font-family-primary
+  
+body, p, div, span, ul, ol, a
+  font-size 20px
+
+body, h1, h2, h3, h4, h5, h6, p, ul, ol
+  color #737C84
+
+body, h1, h2, h3, h4, h5, h6, p
+  line-height 1.2
+  
+h1
+  font-size 36px
+  
+h1, h2
+  font-weight 400
+  
+input
+  display inline
+  padding 16px 15px 15px
+  background-color $color-white
+  background-position right -20px
+  background-size 20px 10px
+  background-repeat no-repeat
+  font-family $font-family-primary
+  font-size 16px
+  border 1px solid $color-grey-semi-light
+  border-radius(8px)
+  box-sizing(border-box)
+  transition(all, 500ms)
+  &:hover,
+  &:focus,
+  &:active
+    outline 0
+
+input.is-invalid,
+input.is-valid
+  padding 16px 35px 15px 15px
+  background-position right center
+  &:focus
+    background-position right -20px
+    color $color-grey-dark
+    border 1px solid $color-grey-semi-light
+    
+input.is-invalid
+  background-image url($path-images/icon-cross.png)
+  color $color-error
+  border 1px solid $color-error
+  
+input.is-valid
+  background-image url($path-images/icon-checked.png)
+  border 1px solid $color-success
+
+a
+  padding-bottom 2px
+  color $color-primary
+  text-decoration none
+  border-bottom 1px solid transparent
+  &:hover
+    border-bottom 1px solid $color-primary
+    
+::-webkit-input-placeholder {
+  color: alpha($color-grey-dark, 0.75);
+}
+:-moz-placeholder {
+  color: alpha($color-grey-dark, 0.75);
+}
+::-moz-placeholder {
+  color: alpha($color-grey-dark, 0.75);
+}
+:-ms-input-placeholder {
+  color: alpha($color-grey-dark, 0.75);
+}
+
++breakpoint(xs)
+  h1
+    font-size 28px
+    letter-spacing -1px

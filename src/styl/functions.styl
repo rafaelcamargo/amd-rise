@@ -1,0 +1,69 @@
+@require 'variables'
+
+border-radius(radius)
+  -webkit-border-radius radius
+  -moz-border-radius radius
+  border-radius radius
+
+box-shadow(shadow)
+  -webkit-box-shadow shadow;
+  -moz-box-shadow shadow;
+  box-shadow shadow;
+
+transition(property, time)
+  -webkit-transition property time cubic-bezier(0.080, 0.690, 0.485, 0.990)
+  -moz-transition property time cubic-bezier(0.080, 0.690, 0.485, 0.990)
+  -o-transition property time cubic-bezier(0.080, 0.690, 0.485, 0.990)
+  transition property time cubic-bezier(0.080, 0.690, 0.485, 0.990)
+  
+box-sizing(property)
+  -webkit-box-sizing: property;
+  -moz-box-sizing: property;
+  box-sizing: property;
+
+gredient(color1, color1ie, alpha1, color2, color2ie, alpha2)
+  background-color color1
+  background -moz-linear-gradient(right,  alpha(color1, alpha1) 0%, alpha(color2, alpha2) 100%) /* FF3.6+ */
+  background -webkit-gradient(linear, top left, top right, color-stop(0%,alpha(color1, alpha1)), color-stop(100%,alpha(color2, alpha2))) /* Chrome,Safari4+ */
+  background -webkit-linear-gradient(right,  alpha(color1, alpha1) 0%,alpha(color2, alpha2) 100%) /* Chrome10+,Safari5.1+ */
+  background -o-linear-gradient(right,  alpha(color1, alpha1) 0%,alpha(color2, alpha2) 100%) /* Opera 11.10+ */
+  background -ms-linear-gradient(right,  alpha(color1, alpha1) 0%,alpha(color2, alpha2) 100%) /* IE10+ */
+  background linear-gradient(to right,  alpha(color1, alpha1) 0%,alpha(color2, alpha2) 100%) /* W3C */
+  filter 'microsoft.gradient( startColorstr=color1ie, endColorstr=color2ie,GradientType=0 )' /* IE6-9 */
+
+bg-responsive(filename, filetype)
+  +breakpoint('xs')
+    $file-xs = filename + '-xs.' + filetype;
+    background-image url($path-images/$file-xs)
+  +breakpoint('sm')
+    $file-sm = filename + '-sm.' + filetype;
+    background-image url($path-images/$file-sm)
+  +breakpoint('md')
+    $file-md = filename + '-md.' + filetype;
+    background-image url($path-images/$file-md)
+  +breakpoint('lg')
+    $file-lg = filename + '-lg.' + filetype;
+    background-image url($path-images/$file-lg)
+
+breakpoint(size)
+  if(size == 'xs')
+    @media screen and (max-width $screen-xs-max)
+      {block}
+  else if (size == 'xs-sm')
+    @media screen and (max-width $screen-sm-max)
+      {block}
+  else if (size == 'sm')
+    @media screen and (min-width $screen-xs-max) and (max-width $screen-sm-max)
+      {block}
+  else if (size == 'sm-md')
+    @media screen and (min-width $screen-sm-min) and (max-width $screen-md-max)
+      {block}
+  else if (size == 'md')
+    @media screen and (min-width $screen-sm-max) and (max-width $screen-md-max)
+      {block}
+  else if (size == 'md-lg')
+    @media screen and (min-width $screen-md-max) and (max-width $screen-lg-min)
+      {block}
+  else if (size == 'lg')
+    @media screen and (min-width $screen-lg-min)
+      {block}
