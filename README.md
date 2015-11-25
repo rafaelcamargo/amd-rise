@@ -5,7 +5,7 @@ amd-rise is a minimal AMD application. Its content has only the minimum conditio
 To run this project, you need Nodejs installed in your system.
 
 ## Installation
-
+```
 git clone git@github.com:rafaelcamargo/amd-rise.git
 cd amd-rise
 npm install -g grunt-cli karma-cli
