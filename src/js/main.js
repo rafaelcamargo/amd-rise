@@ -1,6 +1,6 @@
 (function(require){
 
-  LIBS_PATH = '/assets/js/libs/';
+  var LIBS_PATH = '/assets/js/libs/';
 
   var config = {
     paths: {
