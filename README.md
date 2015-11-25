@@ -19,3 +19,30 @@ open http://localhost:9000
 - If you get `npm: command not found`, make sure you have npm-cli installed in your system. *Nodejs should install it automatically*.
 - If you get `grunt: command not found`, make sure npm has successfully installed `grunt-cli`.
 - If you get `karma: command not found`, make sure npm has successfully installed `karma-cli`.
+
+## Base structure
+
+```
+index.html
+src
+|-- js
+|-- |-- main.js
+|-- |-- modules
+|-- |-- |-- emailValidator.js
+|-- |-- pages
+|-- |-- |-- demo.js
+|-- styl
+|-- |-- alert.styl
+|-- |-- button.styl
+|-- |-- functions.styl
+|-- |-- input.styl
+|-- |-- native.styl
+|-- |-- states.styl
+|-- |-- variables.styl
+spec
+|-- main.js
+|-- modules
+|-- |-- emailValidatorSpec.js
+|-- pages
+|-- |-- demoSpec.js
+```
