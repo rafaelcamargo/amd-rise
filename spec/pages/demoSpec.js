@@ -12,10 +12,16 @@ define(['jquery', 'pages/demo'],function($, demo){
                       '</button>' +
                     '</form>';
     setFixtures(fixtures);
+
     form = $('[data-js="form-demo"]');
     fieldEmail = $('[data-js="field-email"]');
     alert = $('[data-js="alert"]');
+
     demo.init();
+  });
+
+  it('should render page without show any alert', function(){
+    expect(alert).toBeHidden();
   });
 
   it('should show error alert when an invalid email address is submitted', function(){
@@ -25,9 +31,9 @@ define(['jquery', 'pages/demo'],function($, demo){
     fieldEmail.val(INVALID_EMAIL);
     form.trigger('submit');
 
-    expect(alert.hasClass('is-hidden')).toEqual(false);
-    expect(alert.hasClass('cp-alert-error')).toEqual(true);
-    expect(alert.text()).toEqual(MSG_ERROR);
+    expect(alert).toBeVisible();
+    expect(alert).toHaveClass('cp-alert-error');
+    expect(alert).toContainText(MSG_ERROR);
   });
 
   it('should show success alert when a valid email address is submitted', function(){
@@ -37,9 +43,9 @@ define(['jquery', 'pages/demo'],function($, demo){
     fieldEmail.val(VALID_EMAIL);
     form.trigger('submit');
 
-    expect(alert.hasClass('is-hidden')).toEqual(false);
-    expect(alert.hasClass('cp-alert-success')).toEqual(true);
-    expect(alert.text()).toEqual(MSG_SUCCESS);
+    expect(alert).toBeVisible();
+    expect(alert).toHaveClass('cp-alert-success');
+    expect(alert).toContainText(MSG_SUCCESS);
   });
   
 });
