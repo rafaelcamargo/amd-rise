@@ -10,4 +10,4 @@
 
   require.config(config);
 
-})(require);
+}(require));
