@@ -20,7 +20,7 @@ module.exports = function(config) {
       {pattern: 'src/js/**/*.js', included: false},
       {pattern: 'spec/**/*Spec.js', included: false},
       'assets/css/app.min.css',
-      'spec/main.js',
+      'spec/main.js'
     ],
 
 

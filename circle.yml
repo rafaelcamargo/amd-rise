@@ -1,0 +1,9 @@
+machine:
+  node:
+    version: 4.5.0
+
+test:
+  override:
+    - npm install -g grunt-cli karma-cli codeclimate-test-reporter
+    - grunt build
+    - CODECLIMATE_REPO_TOKEN=fd6434e03c70f61d384240e37c5e9fbd417fa192b6a0c5b84fae2a1a62cf1613 codeclimate-test-reporter < ./coverage/report-lcov/lcov.info

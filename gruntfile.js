@@ -49,7 +49,7 @@ module.exports = function(grunt) {
             ],
             dest: 'assets/js/libs/'
           }
-        ],
+        ]
       }
     },
 
