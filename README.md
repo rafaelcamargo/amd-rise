@@ -12,7 +12,6 @@ git clone git@github.com:rafaelcamargo/amd-rise.git
 cd amd-rise
 npm install -g grunt-cli karma-cli
 npm install
-grunt build
 grunt start
 open http://localhost:9000
 ```
