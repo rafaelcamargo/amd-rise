@@ -1,5 +1,5 @@
-@require 'variables'
-@require 'functions'
+@require '_variables'
+@require '_mixins'
 
 body, input, ul, ol
   font-weight 300
@@ -8,7 +8,7 @@ body, h1, h2, h3, h4, h5, h6, p, div, span, ul, ol, a
   margin 0
   padding 0
   font-family $font-family-primary
-  
+
 body, p, div, span, ul, ol, a
   font-size 20px
 
@@ -17,13 +17,13 @@ body, h1, h2, h3, h4, h5, h6, p, ul, ol
 
 body, h1, h2, h3, h4, h5, h6, p
   line-height 1.2
-  
+
 h1
   font-size 36px
-  
+
 h1, h2
   font-weight 400
-  
+
 input
   display inline
   padding 16px 15px 15px
@@ -42,7 +42,22 @@ input
   &:active
     border 1px solid $color-grey-dark
     outline 0
-  
+  &.is-invalid
+    background-image url($path-images/icon-cross.png)
+    color $color-error
+    border 1px solid $color-error
+  &.is-valid
+    background-image url($path-images/icon-checked.png)
+    border 1px solid $color-success
+  &.is-invalid,
+  &.is-valid
+    padding 16px 35px 15px 15px
+    background-position right center
+    &:focus
+      background-position right -20px
+      color $color-grey-dark
+      border 1px solid $color-grey-semi-light
+
 label
   display: block;
 
@@ -53,7 +68,7 @@ a
   border-bottom 1px solid transparent
   &:hover
     border-bottom 1px solid $color-primary
-    
+
 ::-webkit-input-placeholder {
   color: alpha($color-grey-dark, 0.75);
 }

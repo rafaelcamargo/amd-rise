@@ -1,6 +1,6 @@
-define([
+define('views/demo', [
     'jquery',
-    'modules/emailValidator'
+    'shared/emailValidator'
   ], function($, emailValidator){
 
     'use strict';
@@ -10,7 +10,7 @@ define([
     _public.init = function(){
       var elements = getElements();
       setupTriggers(elements);
-    }
+    };
 
     function getElements(){
       return {
@@ -31,11 +31,11 @@ define([
     function validateEmail(alert, data){
       var MSG_ERROR = 'Please, use a valid email address...';
       var MSG_SUCCESS = 'Very good!';
-      alert.text('').removeClass('cp-alert-error cp-alert-success').addClass('is-hidden');
+      alert.text('').removeClass('alert-error alert-success').addClass('is-hidden');
       if(!emailValidator.isValid(data))
-        alert.addClass('cp-alert-error').text(MSG_ERROR).removeClass('is-hidden');
+        alert.addClass('alert-error').text(MSG_ERROR).removeClass('is-hidden');
       else
-        alert.addClass('cp-alert-success').text(MSG_SUCCESS).removeClass('is-hidden');
+        alert.addClass('alert-success').text(MSG_SUCCESS).removeClass('is-hidden');
     }
 
     return _public;

@@ -1,4 +1,4 @@
-define(function(){
+define('shared/emailValidator', function(){
 
   'use strict';
 
