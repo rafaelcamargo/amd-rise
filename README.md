@@ -23,22 +23,21 @@ index.html
 src
 |-- js
 |-- |-- main.js
-|-- |-- modules
+|-- |-- shared
 |-- |-- |-- emailValidator.js
-|-- |-- pages
+|-- |-- views
 |-- |-- |-- demo.js
 |-- styl
+|-- |-- _mixins.styl
+|-- |-- _variables.styl
 |-- |-- alert.styl
 |-- |-- button.styl
-|-- |-- functions.styl
-|-- |-- input.styl
+|-- |-- modifiers.styl
 |-- |-- native.styl
-|-- |-- states.styl
-|-- |-- variables.styl
 spec
 |-- main.js
-|-- modules
+|-- shared
 |-- |-- emailValidatorSpec.js
-|-- pages
+|-- views
 |-- |-- demoSpec.js
 ```
