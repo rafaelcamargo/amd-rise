@@ -2,15 +2,15 @@ module.exports = function(grunt) {
 
   var pathLibs = 'node_modules/';
   var pathSrc = 'src/';
+  var pathSpec = 'spec/';
   var pathScripts = pathSrc + 'js/';
   var pathStyles = pathSrc + 'styl/';
 
   var libFiles = pathLibs + '**/*.min.js';
   var styleFiles = pathStyles + '**/*.styl';
-  var scriptFiles = [
-    pathScripts + 'modules/**/*.js',
-    '!' + pathScripts + 'main.js'
-  ];
+  var mainFile = pathScripts + 'main.js';
+  var scriptFiles = pathScripts + '**/*.js';
+  var specFiles = pathSpec + '**/*.js';
   var configFiles = [
     'package.json',
     'gruntfile.js',
@@ -22,7 +22,7 @@ module.exports = function(grunt) {
     stylus: {
       compile: {
         files: {
-          'assets/css/app.min.css': styleFiles
+          'dist/css/app.min.css': styleFiles
         }
       }
     },
@@ -30,13 +30,18 @@ module.exports = function(grunt) {
     cssmin: {
       target: {
         files: {
-          'assets/css/app.min.css': 'assets/css/app.min.css',
-          'assets/css/lib.min.css': 'assets/css/lib.min.css'
+          'dist/css/app.min.css': 'dist/css/app.min.css',
+          'dist/css/lib.min.css': 'dist/css/lib.min.css'
         }
       }
     },
 
     copy :{
+      main: {
+        files: {
+          'dist/js/main.min.js': 'src/js/main.js'
+        }
+      },
       lib: {
         files: [
           {
@@ -47,7 +52,7 @@ module.exports = function(grunt) {
               'jquery/dist/jquery.min.js',
               'jquery/dist/jquery.min.map'
             ],
-            dest: 'assets/js/libs/'
+            dest: 'dist/js/libs/'
           }
         ]
       }
@@ -59,25 +64,26 @@ module.exports = function(grunt) {
       },
       lib: {
         files: {
-          'assets/js/libs/require.min.js': 'node_modules/requirejs/require.js'
+          'dist/js/libs/require.min.js': 'node_modules/requirejs/require.js'
         }
       },
-      modules: {
+      scripts: {
         files : {
-          'assets/js/shared.min.js' : 'assets/js/shared.min.js'
+          'dist/js/main.min.js' : 'dist/js/main.min.js',
+          'dist/js/bundle.min.js' : 'dist/js/bundle.min.js'
         }
       }
     },
 
     concat_in_order: {
-      dist : {
+      scripts : {
         files : {
-          'assets/js/shared.min.js' : scriptFiles
+          'dist/js/bundle.min.js' : scriptFiles
         }
       },
       lib : {
         files : {
-          'assets/css/lib.min.css': [
+          'dist/css/lib.min.css': [
             pathLibs + 'ggrid/dist/ggrid.min.css'
           ]
         }
@@ -86,7 +92,8 @@ module.exports = function(grunt) {
 
     jshint: {
       conf: configFiles,
-      dist: scriptFiles
+      src: scriptFiles,
+      spec: specFiles
     },
 
     karma: {
@@ -100,11 +107,19 @@ module.exports = function(grunt) {
         files: styleFiles,
         tasks: ['stylus']
       },
-      dist: {
-        files: scriptFiles,
+      main: {
+        files: mainFile,
+        tasks: ['copy:main']
+      },
+      scripts: {
+        files: [
+          scriptFiles,
+          specFiles
+        ],
         tasks: [
-          'jshint:dist',
-          'concat_in_order:dist'
+          'jshint:src',
+          'jshint:spec',
+          'concat_in_order:scripts'
         ]
       },
       lib: {
@@ -126,10 +141,6 @@ module.exports = function(grunt) {
         ext: 'html',
         runInBackground: true
       }
-    },
-
-    exec: {
-      deploy: 'echo "deploying..."'
     }
 
   });
@@ -143,7 +154,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-http-server');
-  grunt.loadNpmTasks('grunt-exec');
 
   grunt.registerTask('build', [
     'stylus',
@@ -163,8 +173,7 @@ module.exports = function(grunt) {
   grunt.registerTask('deploy', [
     'build',
     'cssmin',
-    'uglify:modules',
-    'exec:deploy'
+    'uglify:scripts'
   ]);
 
 };

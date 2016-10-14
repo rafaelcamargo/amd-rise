@@ -1,14 +1,14 @@
-@require 'variables'
-@require 'functions'
+@require '_variables'
+@require '_mixins'
 
-.cp-alert
+.alert
   padding 20px
   border-width 1px
   border-style solid
   border-radius(5px)
-  &.cp-alert-error
+  &.alert-error
     background-color alpha($color-error, 0.2)
     color $color-error
-  &.cp-alert-success
+  &.alert-success
     background-color alpha($color-success, 0.2)
     color $color-success

@@ -1,7 +1,7 @@
-@require 'variables'
-@require 'functions'
+@require '_variables'
+@require '_mixins'
 
-.cp-btn
+.btn
   padding 14px 25px
   min-width 140px
   color $color-grey-dark
@@ -23,9 +23,7 @@
   &:active
     padding 15px 25px 13px
     box-shadow(inset 0 2px 5px 0 alpha($color-grey-dark, 0.25))
-  &.is-progress
-    cursor progress
-  &.cp-btn-primary
+  &.btn-primary
     color $color-white
     background-color $color-primary
     border-color $color-primary
