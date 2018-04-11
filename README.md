@@ -1,7 +1,7 @@
 # amd-rise
 amd-rise is a minimal AMD application. Its content has only the minimum conditions to start code an app: jQuery, RequireJS, and automated tasks to watch and update *.js* and *.styl* files.
 
-(https://circleci.com/gh/rafaelcamargo/amd-rise.svg?style=svg)](https://circleci.com/gh/rafaelcamargo/amd-rise)
+[![CircleCI](https://circleci.com/gh/rafaelcamargo/amd-rise.svg?style=svg)](https://circleci.com/gh/rafaelcamargo/amd-rise)
 
 ## Requirements
 To run this project, you need Nodejs installed in your system.
